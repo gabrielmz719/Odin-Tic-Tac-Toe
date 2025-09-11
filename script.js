@@ -5,26 +5,41 @@ const GameBoard = (() => {
         '', '', '',
         '', '', ''
     ]
-
-    const render = ()=>{
-        let boardHTML ="";
-        GameBoard.forEach((square,index)=>{
-            boardHTML+= `<div class="square" id="square-${index}">${square}</div>`;
-        })
+    const getBoard = () => {
+        return [...board];
     }
+
+    const setSquare = (index,symbol) => {
+        if (board[index] === '') {
+            board[index] = symbol
+            return true;
+        }
+        return false;
+    }
+    const reset = () => {
+        return board = ['', '', '',
+            '', '', '',
+            '', '', ''
+        ]
+    }
+
+    return {getBoard,reset,setSquare}
 })();
 
 
-const Player=(name, symbol)=> {
+function Player(name, symbol) {
     return {
         name,
         symbol,
     }
 };
 
-function GameController() {
+const GameController = () => {
     return {
 
+        checkDraw() {
+
+        }
     }
 }
 
